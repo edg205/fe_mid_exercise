@@ -38,15 +38,16 @@ export default {
   max-width: 850px;
   margin: 0 auto;
   .product-listing-container {
-    margin: 5rem auto;
+    margin: 5rem auto 3rem;
     .product-listing-key {
       margin: 3rem 5rem;
     }
   }
   .product-listing-total {
-    text-align: right;
+    margin-top: 0;
     margin-right: 2rem;
     font-size: 1.2em;
+    text-align: right;
   }
 }
 </style>

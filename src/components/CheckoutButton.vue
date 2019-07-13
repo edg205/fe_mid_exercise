@@ -1,18 +1,17 @@
 <template>
   <div class="checkout-button">
     <button
-      :class="this.totalForAllKeys === 0 ? 'disabled' : 'active' "
-      :disabled="this.totalForAllKeys === 0"
+      :class="this.totalNumberOfKeys === 0 ? 'disabled' : 'active' "
+      :disabled="this.totalNumberOfKeys === 0"
     >Proceed to Checkout</button>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
   name: "CheckoutButton",
-  computed: {
-    ...mapState(["totalForAllKeys"])
+  props: {
+    totalNumberOfKeys: Number
   }
 };
 </script>

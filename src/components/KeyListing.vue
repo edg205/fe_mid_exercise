@@ -1,5 +1,5 @@
 <template>
-  <div class="key-listing flex column align-items-center">
+  <div class="key-listing flex direction-column align-items-center">
     <CircleBackground />
     <img class="key-listing-image" :src="keyInformation.image" />
     <p class="key-listing-name">{{keyInformation.name}}</p>

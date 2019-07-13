@@ -1,11 +1,12 @@
 <template>
-  <div class="product-listing flex column">
+  <div class="product-listing flex direction-column">
     <div class="product-listing-container flex">
       <div class="product-listing-key" v-for="item in listOfKeys" :key="item.id">
-        <KeyListing :keyInformation="item" />
+        <KeyListing :keyInformation="item" :totalNumberOfKeys="totalNumberOfKeys" />
       </div>
     </div>
-    <CheckoutButton />
+    <p v-if="totalNumberOfKeys > 0" class="product-listing-total">Total: {{totalNumberOfKeys}}</p>
+    <CheckoutButton :totalNumberOfKeys="totalNumberOfKeys" />
   </div>
 </template>
 
@@ -13,12 +14,16 @@
 import KeyListing from "../components/KeyListing";
 import CheckoutButton from "../components/CheckoutButton";
 import { listOfKeys } from "../helpers/listOfKeys";
+import { mapState } from "vuex";
 
 export default {
   name: "ProductListing",
   components: {
     KeyListing,
     CheckoutButton
+  },
+  computed: {
+    ...mapState(["totalNumberOfKeys"])
   },
   data() {
     return {
@@ -37,6 +42,11 @@ export default {
     .product-listing-key {
       margin: 3rem 5rem;
     }
+  }
+  .product-listing-total {
+    text-align: right;
+    margin-right: 2rem;
+    font-size: 1.2em;
   }
 }
 </style>

@@ -29,7 +29,7 @@ export default {
     &.align-items-center {
       align-items: center;
     }
-    &.column {
+    &.direction-column {
       flex-direction: column;
     }
   }

@@ -14,9 +14,6 @@
 import { mapState } from "vuex";
 export default {
   name: "QuantityButtons",
-  computed: {
-    ...mapState(["totalForAllKeys"])
-  },
   data() {
     return {
       quantity: 0
@@ -43,6 +40,10 @@ export default {
     width: 25px;
     border-radius: 50%;
     font-size: 1rem;
+    &.disabled {
+      color: #9b9b9b;
+      opacity: 0.5;
+    }
   }
   .quantity {
     margin: 0 1rem;

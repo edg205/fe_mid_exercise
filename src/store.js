@@ -5,14 +5,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    totalForAllKeys: 0
+    totalNumberOfKeys: 0
   },
   mutations: {
     decrementTotal(state) {
-      state.totalForAllKeys--;
+      state.totalNumberOfKeys--;
     },
     incrementTotal(state) {
-      state.totalForAllKeys++;
+      state.totalNumberOfKeys++;
     }
   },
   actions: {

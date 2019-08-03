@@ -14,19 +14,23 @@ class AddKeyPage extends Component {
       dotsKeyCount: 0
     }
   }
-  
+
   incrementKeyCount (keyType){
     this.setState( prevState => ({
       [keyType]:  prevState[keyType] + 1
     }))
   }
-  
+
   decrementKeyCount (keyType){
     this.setState( prevState => ({
       [keyType]:  prevState[keyType] ? prevState[keyType] - 1 : 0
     }))
   }
-  
+
+  handleClickProceed (){
+    alert('Whoops! Sorry for the tease... ')
+  }
+
   render () {
     return (
       <div className="container" id="key-div">
@@ -41,15 +45,15 @@ class AddKeyPage extends Component {
               <button onClick={()=> {this.decrementKeyCount('plainKeyCount')}} type="button" className="btn btn-outline-danger btn-sm" id="quantity-button">
                 -
               </button>
-                <p id="quantity-num"> 
-                  {this.state.plainKeyCount} 
+                <p id="quantity-num">
+                  {this.state.plainKeyCount}
                 </p>
               <button onClick={()=> {this.incrementKeyCount('plainKeyCount')}} type="button" className="btn btn-outline-danger btn-sm" id="quantity-button">
                 +
               </button>
             </div>
           </div>
-          
+
           <div className="col-sm">
             <img src={bottleOpenerKey} className="images" alt="logo" />
             <div className="circle">
@@ -60,15 +64,15 @@ class AddKeyPage extends Component {
               <button onClick={()=> {this.decrementKeyCount('bottleOpenerKeyCount')}} type="button" className="btn btn-outline-danger btn-sm" id="quantity-button">
                 -
               </button>
-                <p id="quantity-num"> 
-                  {this.state.bottleOpenerKeyCount} 
+                <p id="quantity-num">
+                  {this.state.bottleOpenerKeyCount}
                 </p>
               <button onClick={()=> {this.incrementKeyCount('bottleOpenerKeyCount')}} type="button" className="btn btn-outline-danger btn-sm" id="quantity-button">
                 +
               </button>
             </div>
           </div>
-          
+
           <div className="col-sm">
             <img src={dotsKey} className="images" alt="logo" />
             <div className="circle">
@@ -79,8 +83,8 @@ class AddKeyPage extends Component {
               <button onClick={()=> {this.decrementKeyCount('dotsKeyCount')}} type="button" className="btn btn-outline-danger btn-sm" id="quantity-button">
                 -
               </button>
-                <p id="quantity-num"> 
-                  {this.state.dotsKeyCount} 
+                <p id="quantity-num">
+                  {this.state.dotsKeyCount}
                 </p>
               <button onClick={()=> {this.incrementKeyCount('dotsKeyCount')}} type="button" className="btn btn-outline-danger btn-sm" id="quantity-button">
                 +
@@ -88,23 +92,24 @@ class AddKeyPage extends Component {
             </div>
           </div>
         </div>
-          
+
         <div className="container" id="checkout-div">
           <div className="row">
-            <button type="button" className="btn btn-secondary btn-lg disabled" role="button" 
+            <button type="button" className="btn btn-secondary btn-lg disabled"
               id={
-                this.state.plainKeyCount !== 0 || 
-                this.state.bottleOpenerKeyCount !==0 || 
-                this.state.dotsKeyCount !== 0 
-                ? "checkout-button-enabled" : "checkout-button-disabled" } 
+                this.state.plainKeyCount !== 0 ||
+                this.state.bottleOpenerKeyCount !==0 ||
+                this.state.dotsKeyCount !== 0
+                ? "checkout-button-enabled" : "checkout-button-disabled" }
+              onClick={()=> {this.handleClickProceed()}}
               >
               Proceed to Checkout
             </button>
           </div>
         </div>
-        
+
       </div>
-      
+
     )
   }
 }
